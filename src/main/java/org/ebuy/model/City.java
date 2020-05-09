@@ -23,6 +23,7 @@ public class City {
 
     private String name;
     private String code;
+    private String countryCode;
 
     @OneToMany(
             fetch = FetchType.LAZY,

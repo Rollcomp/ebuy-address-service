@@ -12,5 +12,6 @@ public class CityRequest {
 
     private String name;
     private String code;
+    private String countryCode;
 
 }
