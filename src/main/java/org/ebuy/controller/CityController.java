@@ -1,7 +1,13 @@
 package org.ebuy.controller;
 
+import org.ebuy.model.request.CityRequest;
+import org.ebuy.model.response.CityDto;
+import org.ebuy.model.response.DistrictDto;
+import org.ebuy.model.response.NeighborhoodDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * Created by Burak Köken on 9.5.2020.
@@ -11,22 +17,22 @@ import org.springframework.web.bind.annotation.*;
 public class CityController {
 
     @GetMapping
-    public ResponseEntity<?> getAllCities() {
+    public ResponseEntity<List<CityDto>> getAllCities() {
         return null;
     }
 
     @GetMapping("/{cityId}")
-    public ResponseEntity<?> getCity(@PathVariable Long cityId) {
+    public ResponseEntity<CityDto> getCity(@PathVariable Long cityId) {
         return null;
     }
 
     @PostMapping
-    public ResponseEntity<?> createCity() {
+    public ResponseEntity<CityDto> createCity(@RequestBody CityRequest request) {
         return null;
     }
 
     @PutMapping("/{cityId}")
-    public ResponseEntity<?> updateCity(@PathVariable Long cityId) {
+    public ResponseEntity<CityDto> updateCity(@PathVariable Long cityId, @RequestBody CityRequest request) {
         return null;
     }
 
@@ -36,12 +42,12 @@ public class CityController {
     }
 
     @GetMapping("/{cityId}/district")
-    public ResponseEntity<?> getDistricts(@PathVariable Long cityId) {
+    public ResponseEntity<List<DistrictDto>> getDistricts(@PathVariable Long cityId) {
         return null;
     }
 
     @GetMapping("/{cityId}/district/{districtId}/neighborhood")
-    public ResponseEntity<?> getNeighborhoodOfCityDistrict(@PathVariable Long cityId, @PathVariable Long districtId) {
+    public ResponseEntity<List<NeighborhoodDto>> getNeighborhoodOfCityDistrict(@PathVariable Long cityId, @PathVariable Long districtId) {
         return null;
     }
 
