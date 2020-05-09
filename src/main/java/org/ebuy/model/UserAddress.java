@@ -20,16 +20,13 @@ public class UserAddress {
     @Column(nullable = false)
     private String title;
 
-    @OneToOne
-    @Column(nullable = false)
+    @OneToOne(optional = false)
     private City city;
 
-    @OneToOne
-    @Column(nullable = false)
+    @OneToOne(optional = false)
     private District district;
 
-    @OneToOne
-    @Column(nullable = false)
+    @OneToOne(optional = false)
     private Neighborhood neighborhood;
 
     @Column(nullable = false)

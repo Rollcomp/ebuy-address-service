@@ -22,9 +22,8 @@ public class District {
     @Column(nullable = false)
     private String name;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "city_id")
-    @Column(nullable = false)
     private City city;
 
     @OneToMany(

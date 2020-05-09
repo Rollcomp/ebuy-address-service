@@ -23,9 +23,8 @@ public class Neighborhood {
     @Column(nullable = false)
     private String postCode;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "district_id")
-    @Column(nullable = false)
     private District district;
 
 }
