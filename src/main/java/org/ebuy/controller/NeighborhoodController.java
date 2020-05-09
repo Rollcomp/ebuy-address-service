@@ -1,9 +1,12 @@
 package org.ebuy.controller;
 
 import org.ebuy.model.request.NeighborhoodRequest;
+import org.ebuy.model.response.DistrictDto;
 import org.ebuy.model.response.NeighborhoodDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * Created by Burak Köken on 9.5.2020.
@@ -18,7 +21,12 @@ public class NeighborhoodController {
     }
 
     @PostMapping
-    public ResponseEntity<NeighborhoodDto> createNeighborhoodId(@RequestBody NeighborhoodRequest request) {
+    public ResponseEntity<NeighborhoodDto> createNeighborhood(@RequestBody NeighborhoodRequest request) {
+        return null;
+    }
+
+    @PostMapping("/bulk")
+    public ResponseEntity<List<NeighborhoodDto>> createBulkNeighborhood(@RequestBody List<NeighborhoodDto> request) {
         return null;
     }
 

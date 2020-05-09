@@ -31,6 +31,11 @@ public class CityController {
         return null;
     }
 
+    @PostMapping("/bulk")
+    public ResponseEntity<List<CityDto>> createBulkCity(@RequestBody List<CityRequest> request) {
+        return null;
+    }
+
     @PutMapping("/{cityId}")
     public ResponseEntity<CityDto> updateCity(@PathVariable Long cityId, @RequestBody CityRequest request) {
         return null;
