@@ -17,11 +17,15 @@ public class Neighborhood {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private String name;
+
+    @Column(nullable = false)
     private String postCode;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "district_id")
+    @Column(nullable = false)
     private District district;
 
 }

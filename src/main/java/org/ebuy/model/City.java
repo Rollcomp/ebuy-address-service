@@ -21,8 +21,11 @@ public class City {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private String name;
+    @Column(nullable = false)
     private String code;
+    @Column(nullable = false)
     private String countryCode;
 
     @OneToMany(
