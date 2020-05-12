@@ -22,7 +22,10 @@ public class District {
     @Column(nullable = false)
     private String name;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(
+            fetch = FetchType.LAZY,
+            optional = false
+    )
     @JoinColumn(name = "city_id")
     private City city;
 
@@ -33,5 +36,15 @@ public class District {
             orphanRemoval = true
     )
     private Set<Neighborhood> neighborhoods = new HashSet<>();
+
+    public void addNeighborhood(Neighborhood neighborhood) {
+        neighborhoods.add(neighborhood);
+        neighborhood.setDistrict(this);
+    }
+
+    public void removeNeighborhood(Neighborhood neighborhood) {
+        neighborhoods.remove(neighborhood);
+        neighborhood.setDistrict(null);
+    }
 
 }
