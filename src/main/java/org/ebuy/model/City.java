@@ -36,4 +36,14 @@ public class City {
     )
     private Set<District> districts = new HashSet<>();
 
+    public void addDistrict(District district) {
+        districts.add(district);
+        district.setCity(this);
+    }
+
+    public void removeDistrict(District district) {
+        districts.remove(district);
+        district.setCity(null);
+    }
+
 }

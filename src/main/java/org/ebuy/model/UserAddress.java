@@ -20,13 +20,13 @@ public class UserAddress {
     @Column(nullable = false)
     private String title;
 
-    @OneToOne(optional = false)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private City city;
 
-    @OneToOne(optional = false)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private District district;
 
-    @OneToOne(optional = false)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Neighborhood neighborhood;
 
     @Column(nullable = false)
