@@ -30,7 +30,7 @@ public class UserAddressService {
         return userAddressOptional.orElseThrow(() -> new UserAddressNotFoundException(id));
     }
 
-    public UserAddress createNeighborhood(UserAddress userAddress) {
+    public UserAddress createUserAddress(UserAddress userAddress) {
         return userAddressRepository.save(userAddress);
     }
 

@@ -39,7 +39,7 @@ public class NeighborhoodService {
         return neighborhoodRepository.saveAll(neighborhoods);
     }
 
-    public Neighborhood updateNeighborhoods(Long neighborhoodId, Neighborhood updatedNeighborhood) {
+    public Neighborhood updateNeighborhood(Long neighborhoodId, Neighborhood updatedNeighborhood) {
         Optional<Neighborhood> neighborhoodOptional = neighborhoodRepository.findById(neighborhoodId);
         Neighborhood neighborhood = neighborhoodOptional.orElseThrow(() -> new NeighborhoodNotFoundException(neighborhoodId));
         neighborhood.setName(updatedNeighborhood.getName());
