@@ -13,8 +13,8 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -100,7 +100,7 @@ public class NeighborhoodRepositoryIntegrationTest {
 
     @Test
     public void givenDistrictId_whenFindNeighborhoodsByDistrictId_thenShouldBeReturned() {
-        Set<Neighborhood> result = neighborhoodRepository.findNeighborhoodsByDistrictId(1L);
+        List<Neighborhood> result = neighborhoodRepository.findNeighborhoodsByDistrictId(1L);
         assertThat(result).isNotNull();
         assertThat(result).hasSize(1);
     }

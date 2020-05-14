@@ -15,7 +15,6 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -150,7 +149,7 @@ public class DistrictRepositoryIntegrationTest {
         districts.forEach(city::addDistrict);
         entityManager.persistAndFlush(city);
 
-        Set<District> result = districtRepository.findDistrictsByCityId(1L);
+        List<District> result = districtRepository.findDistrictsByCityId(1L);
         assertThat(result).isNotNull();
         assertThat(result).hasSize(3);
     }
