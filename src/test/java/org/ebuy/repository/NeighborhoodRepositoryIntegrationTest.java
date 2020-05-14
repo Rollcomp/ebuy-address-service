@@ -14,6 +14,7 @@ import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.Optional;
+import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -24,9 +25,6 @@ public class NeighborhoodRepositoryIntegrationTest {
 
     @Autowired
     private TestEntityManager entityManager;
-
-    @Autowired
-    private CityRepository cityRepository;
 
     @Autowired
     private DistrictRepository districtRepository;
@@ -98,6 +96,13 @@ public class NeighborhoodRepositoryIntegrationTest {
         assertThat(neighborhoodOptional.isPresent()).isTrue();
         assertThat(neighborhoodOptional.get().getName()).isEqualTo("Çankaya");
         assertThat(neighborhoodOptional.get().getPostCode()).isEqualTo("00000");
+    }
+
+    @Test
+    public void givenDistrictId_whenFindNeighborhoodsByDistrictId_thenShouldBeReturned() {
+        Set<Neighborhood> result = neighborhoodRepository.findNeighborhoodsByDistrictId(1L);
+        assertThat(result).isNotNull();
+        assertThat(result).hasSize(1);
     }
 
 }

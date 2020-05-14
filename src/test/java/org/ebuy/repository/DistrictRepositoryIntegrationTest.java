@@ -15,6 +15,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -137,6 +138,21 @@ public class DistrictRepositoryIntegrationTest {
 
         Optional<Neighborhood> neighborhoodOptional = neighborhoodRepository.findById(neighborhood.getId());
         assertThat(neighborhoodOptional.isPresent()).isFalse();
+    }
+
+    @Test
+    public void givenCityId_whenFindDistrictsById_thenShouldBeReturned() {
+        Optional<City> cityOptional = cityRepository.findById(1L);
+        assertThat(cityOptional.isPresent()).isTrue();
+        City city = cityOptional.get();
+
+        List<District> districts = HelperMethods.buildDistricts("Beşiktaş", "Kartal");
+        districts.forEach(city::addDistrict);
+        entityManager.persistAndFlush(city);
+
+        Set<District> result = districtRepository.findDistrictsByCityId(1L);
+        assertThat(result).isNotNull();
+        assertThat(result).hasSize(3);
     }
 
 }

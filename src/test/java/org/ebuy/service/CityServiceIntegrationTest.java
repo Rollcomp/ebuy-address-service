@@ -49,7 +49,7 @@ public class CityServiceIntegrationTest {
     @Test
     public void givenCityValues_whenCreateCityIsCalled_thenShouldSaveCity() {
         City result = HelperMethods.buildCity(1L, "İstanbul", "34");
-        when(cityRepository.save(any())).thenReturn(Optional.of(result));
+        when(cityRepository.save(any())).thenReturn(result);
         City city = HelperMethods.buildCity("İstanbul", "34");
         assertThat(cityService.createCity(city).getId()).isNotNull();
     }
@@ -75,7 +75,7 @@ public class CityServiceIntegrationTest {
         City city1 = HelperMethods.buildCity(1L, "İstanbul", "34");
         when(cityRepository.findById(any())).thenReturn(Optional.of(city1));
         City city2 = HelperMethods.buildCity(1L, "Kocaeli", "41");
-        when(cityRepository.save(any())).thenReturn(Optional.of(city2));
+        when(cityRepository.save(any())).thenReturn(city2);
         City result = cityService.updateCity(1L, city2);
         assertThat(result.getName()).isEqualTo("Kocaeli");
         assertThat(result.getCode()).isEqualTo("41");
