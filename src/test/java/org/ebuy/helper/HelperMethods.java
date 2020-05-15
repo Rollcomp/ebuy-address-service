@@ -19,6 +19,12 @@ public class HelperMethods {
         return city;
     }
 
+    public static City buildCity(Long id, String name, String code) {
+        City city = buildCity(name, code);
+        city.setId(id);
+        return city;
+    }
+
     public static District buildDistrict(String name) {
         District district = new District();
         district.setName(name);
